@@ -1,0 +1,54 @@
+boolean recording = false;
+
+void setup() {
+  size(600, 350);
+  noStroke();
+  textAlign(CENTER);
+}
+
+void draw() {
+    background(180);
+  String[] black = {
+    "coffee", "death", "box", "eye", "market", "sheep", "belt", "man", "hole", "power", 
+    "tie", "list", "pepper", "magic", "humour", "pudding", "sea", "flag", "mark", "hole", "letter"
+  };
+  String[] white = {
+    "paper", "lies", "out", "chocolate", "gold", "knight", "noise", "trash", "Russian", "wine", 
+    "whine", "noise", "water", "supremacist", "house", "meat"
+  };
+
+  int n = int(random(21));
+  int m = int(random(16));
+
+  textSize(30);
+  
+  //BLACK
+  fill(0);
+  //rect(75, 50, 200, 200);
+  text("black", 180, 150);
+  text(black[n], 180, 200);
+ 
+  //WHITE
+  fill(255);
+  //rect(300, 50, 200, 200);
+  text("white", 400,150);
+  text(white[m], 400, 200);
+  
+  noLoop();
+  
+  if (recording) {
+    saveFrame("output/frames2_####.png");
+  }
+
+}
+
+void mouseClicked() {
+ redraw();
+}
+
+void keyPressed() {  
+  // If we press r, start or stop recording!
+  if (key == 'r' || key == 'R') {
+    recording = !recording;
+  }
+}
